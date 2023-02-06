@@ -1,14 +1,24 @@
 #!/bin/bash
 
 if [[ "$UID" -ne 0 ]]
-    then echo "You need to execute the script with root privileges."
+then
+    echo "You need to execute the script with root privileges."
     exit 1
 fi
 
-read -p "Provide a username: " USERNAME
+if [[ "$#" -eq 0 ]]
+then
+    echo "USAGE: $(basename ${0}) USERNAME [COMMENT...]"
+    exit 1
+fi
+
+USERNAME=${1}
+shift
+COMMENT=${@}
+
 read -p "Provide an initial password: " PASSWORD
 
-useradd -ms /bin/bash "${USERNAME}"
+useradd -ms /bin/bash -c "${COMMENT}" "${USERNAME}"
 
 if [[ "$?" -ne 0 ]]
 then
