@@ -7,6 +7,7 @@ Update a [previous bash shell script], that adds users to the same Linux system 
 - Username is provided as first argument of the script
 - Remaining arguments are treated as the comment for the account
 - Automatically generates an initial password for the script
+- Add stderr and stdout redirection
 
 [Udemy Bash Course - Create a new user]: <https://udemy.com/course/linux-shell-scripting-projects>
 [previous bash shell script]: <https://github.com/kopcink/udemy_bash_exercise_1>
