@@ -16,7 +16,7 @@ USERNAME=${1}
 shift
 COMMENT=${@}
 
-read -p "Provide an initial password: " PASSWORD
+PASSWORD=$(echo "${RANDOM}${RANDOM}$(date +%N)" | sha256sum | cut -c1-12)
 
 useradd -ms /bin/bash -c "${COMMENT}" "${USERNAME}"
 
